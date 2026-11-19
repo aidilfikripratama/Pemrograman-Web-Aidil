@@ -4039,6 +4039,188 @@ body.dark-theme #cur.lbl .cur-ring{--c1:#7c6cf0}
 @keyframes curPulse{to{transform:scale(7);opacity:0}}
 #cur.lbl .cur-dot,#cur.lbl .cur-rocket{opacity:0}
 
+/* ===== KUIS + STREAK ===== */
+.lesson-action.qzb{background:linear-gradient(135deg,color-mix(in srgb,var(--p,#5b5bf0) 14%,transparent),color-mix(in srgb,var(--p2,#22d3ee) 14%,transparent))!important;border-color:color-mix(in srgb,var(--p,#5b5bf0) 40%,transparent)!important;color:var(--p,#5b5bf0)!important}
+.lesson-action.qzb.pass{background:#e2f4e9!important;border-color:#b9e1c8!important;color:#216a46!important}
+body.dark-theme .lesson-action.qzb{color:#c4b5fd!important}
+body.dark-theme .lesson-action.qzb.pass{background:rgba(16,185,129,.16)!important;border-color:rgba(16,185,129,.4)!important;color:#6ee7b7!important}
+.qz-back{position:fixed;inset:0;z-index:9650;display:grid;place-items:center;padding:clamp(10px,3vw,24px);background:rgba(8,10,30,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;overflow:auto}
+.qz-back.open{opacity:1;visibility:visible}
+.qz{position:relative;width:min(560px,100%);padding:clamp(20px,3vw,30px);border-radius:26px;background:var(--surface,#fff);border:1px solid var(--bd,#e3e7f5);color:var(--tx,#14183a);box-shadow:0 50px 120px -30px rgba(0,0,0,.65);transform:translateY(22px) scale(.97);transition:transform .45s cubic-bezier(.2,.9,.25,1.1);overflow:hidden}
+.qz-back.open .qz{transform:none}
+.qz-x{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--bd,#e3e7f5);background:transparent;color:inherit;font-size:15px;cursor:pointer}
+.qz-x:hover{background:color-mix(in srgb,var(--p,#5b5bf0) 12%,transparent)}
+.qz-kick{font:800 10.5px/1 var(--head,Inter,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--p,#5b5bf0);margin:0 40px 8px 0}
+.qz-title{font:800 clamp(16px,2.4vw,19px)/1.3 var(--head,Inter,sans-serif);margin:0 40px 16px 0}
+.qz-dots{display:flex;gap:6px;margin-bottom:18px}
+.qz-dots i{flex:1;height:6px;border-radius:9px;background:color-mix(in srgb,var(--tx,#14183a) 12%,transparent);transition:background .3s}
+.qz-dots i.cur{background:color-mix(in srgb,var(--p,#5b5bf0) 55%,transparent)}
+.qz-dots i.ok{background:#10b981}.qz-dots i.no{background:#f43f5e}
+.qz-q{font:700 clamp(15px,2.2vw,17px)/1.5 var(--head,Inter,sans-serif);margin:0 0 14px;animation:qzIn .4s both}
+.qz-opts{display:grid;gap:9px}
+.qz-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px;border-radius:14px;border:1.5px solid var(--bd,#e3e7f5);background:transparent;color:inherit;font:600 14px/1.4 inherit;cursor:pointer;transition:transform .2s,border-color .2s,background .2s;animation:qzIn .4s both;animation-delay:calc(var(--i)*60ms)}
+.qz-opt:hover:not(:disabled){transform:translateX(4px);border-color:var(--p,#5b5bf0);background:color-mix(in srgb,var(--p,#5b5bf0) 8%,transparent)}
+.qz-opt b{flex:0 0 28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:12px;background:color-mix(in srgb,var(--p,#5b5bf0) 14%,transparent);color:var(--p,#5b5bf0)}
+.qz-opt code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.qz-opt:disabled{cursor:default}
+.qz-opt.ok{border-color:#10b981;background:rgba(16,185,129,.12)}.qz-opt.ok b{background:#10b981;color:#fff}
+.qz-opt.no{border-color:#f43f5e;background:rgba(244,63,94,.1);animation:qzShake .4s}.qz-opt.no b{background:#f43f5e;color:#fff}
+.qz-opt.dim{opacity:.55}
+.qz-fb{margin-top:14px;padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.55;background:color-mix(in srgb,var(--p,#5b5bf0) 8%,transparent);animation:qzIn .35s both}
+.qz-fb strong{display:block;margin-bottom:2px}
+.qz-fb.ok strong{color:#059669}.qz-fb.no strong{color:#e11d48}
+body.dark-theme .qz-fb.ok strong{color:#6ee7b7}body.dark-theme .qz-fb.no strong{color:#fda4af}
+.qz-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
+.qz-foot small{opacity:.65;font-size:11.5px}
+.qz-btn{border:0;border-radius:13px;padding:11px 18px;font:800 13px/1 var(--head,Inter,sans-serif);cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee));box-shadow:0 10px 24px -10px var(--p,#5b5bf0);transition:transform .2s}
+.qz-btn:hover{transform:translateY(-2px)}
+.qz-btn.ghost{background:transparent;color:inherit;border:1.5px solid var(--bd,#e3e7f5);box-shadow:none}
+.qz-res{text-align:center;padding:6px 0 2px;animation:qzIn .5s both}
+.qz-stars{font-size:38px;letter-spacing:6px;margin:6px 0 4px}
+.qz-stars span{display:inline-block;opacity:.25;filter:grayscale(1)}
+.qz-stars span.on{opacity:1;filter:none;animation:qzPop .6s cubic-bezier(.2,1.6,.3,1) both;animation-delay:calc(var(--i)*180ms)}
+.qz-score{font:800 44px/1 var(--head,Inter,sans-serif);margin:4px 0}
+.qz-score small{font-size:18px;opacity:.55}
+.qz-msg{font-size:14px;line-height:1.55;margin:8px auto 18px;max-width:38ch;opacity:.85}
+.qz-acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.qz-conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.qz-conf i{position:absolute;top:-12px;width:8px;height:14px;border-radius:2px;animation:qzFall 1.8s ease-in forwards}
+@keyframes qzIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes qzShake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes qzPop{from{transform:scale(0) rotate(-40deg)}to{transform:scale(1) rotate(0)}}
+@keyframes qzFall{to{transform:translate(var(--dx),110vh) rotate(var(--r));opacity:.9}}
+/* Streak */
+#streakCard{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(14px,2.4vw,26px);align-items:center;margin:-8px 0 26px;padding:clamp(14px,2vw,20px) clamp(16px,2.4vw,26px);border-radius:22px;background:var(--surface);border:1px solid var(--bd);box-shadow:var(--shadow-sm,0 6px 20px rgba(20,24,90,.06));position:relative;overflow:hidden}
+#streakCard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 0 0,rgba(251,146,60,.16),transparent 55%);pointer-events:none}
+.sk-main{display:flex;align-items:center;gap:14px;position:relative}
+.sk-fire{font-size:40px;line-height:1;filter:grayscale(1);opacity:.5;transition:.4s}
+#streakCard.live .sk-fire{filter:none;opacity:1;animation:skFlame 1.6s ease-in-out infinite;transform-origin:50% 90%}
+.sk-n{font:800 34px/1 var(--head,Inter,sans-serif);letter-spacing:-.02em}
+.sk-n small{font-size:13px;font-weight:700;opacity:.65;margin-left:4px;letter-spacing:0}
+.sk-sub{font-size:12px;opacity:.7;margin-top:4px;max-width:26ch;line-height:1.4}
+.sk-week{display:flex;gap:clamp(6px,1.4vw,12px);justify-content:center;position:relative}
+.sk-d{display:grid;justify-items:center;gap:6px;font-size:10.5px;font-weight:700;opacity:.9}
+.sk-d span{opacity:.6}
+.sk-d i{width:clamp(26px,3.4vw,34px);height:clamp(26px,3.4vw,34px);border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px;border:1.5px dashed color-mix(in srgb,var(--tx,#14183a) 22%,transparent)}
+.sk-d.on i{border:0;background:linear-gradient(135deg,#fb923c,#f43f5e);box-shadow:0 6px 14px -4px rgba(244,63,94,.6)}
+.sk-d.today i{outline:2px solid var(--p,#5b5bf0);outline-offset:2px}
+.sk-side{text-align:right;font-size:12px;position:relative;line-height:1.6}
+.sk-side b{font:800 15px var(--head,Inter,sans-serif)}
+.sk-side .st{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:99px;font-weight:800;font-size:11px;background:color-mix(in srgb,var(--p,#5b5bf0) 12%,transparent);color:var(--p,#5b5bf0)}
+.sk-side .st.ok{background:rgba(16,185,129,.15);color:#059669}
+body.dark-theme .sk-side .st{color:#c4b5fd}body.dark-theme .sk-side .st.ok{color:#6ee7b7}
+@keyframes skFlame{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.1,1.16) rotate(2deg)}}
+#streakChip{display:inline-flex;align-items:center;gap:5px;font-weight:800}
+#streakChip .f{filter:grayscale(1);opacity:.55}
+#streakChip.live .f{filter:none;opacity:1;animation:skFlame 1.6s ease-in-out infinite;display:inline-block}
+@media(max-width:820px){#streakCard{grid-template-columns:1fr auto}.sk-week{grid-column:1/-1;order:3;justify-content:space-between}.sk-side{order:2}}
+@media(max-width:420px){#streakCard{grid-template-columns:1fr}.sk-side{text-align:left}.sk-sub{max-width:none}}
+@media(prefers-reduced-motion:reduce){.qz *,#streakCard *,#streakChip *{animation:none!important}}
+
+/* ===== POLES TAMPILAN MATERI ===== */
+/* tombol aksi */
+html body .lesson-actions{display:flex!important;flex-wrap:wrap;align-items:center;gap:10px!important;border-top:1px dashed var(--bd)!important;margin-top:22px!important;padding-top:18px!important}
+html body .lesson-actions .lesson-action{display:inline-flex!important;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:0 18px!important;border-radius:999px!important;font:700 12.5px/1 var(--head,Inter,sans-serif)!important;letter-spacing:.01em;white-space:nowrap;width:auto!important;max-width:none!important;cursor:pointer;background:var(--surface-2,color-mix(in srgb,var(--tx,#14183a) 5%,transparent))!important;color:var(--tx,#14183a)!important;border:1.5px solid var(--bd,#e3e7f5)!important;box-shadow:none!important;transition:transform .2s,box-shadow .25s,border-color .2s,background .2s!important}
+html body .lesson-actions .lesson-action:hover{transform:translateY(-2px);border-color:var(--p,#5b5bf0)!important;box-shadow:0 10px 22px -12px var(--p,#5b5bf0)!important}
+html body .lesson-actions .lesson-action:active{transform:scale(.97)}
+html body .lesson-actions .lesson-action.done{background:linear-gradient(135deg,#10b981,#059669)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 10px 22px -12px #10b981!important}
+html body .lesson-actions .lesson-action.saved{background:linear-gradient(135deg,#fbbf24,#f59e0b)!important;color:#3b2500!important;border-color:transparent!important;box-shadow:0 10px 22px -12px #f59e0b!important}
+html body .lesson-actions .lesson-action.qzb{background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee))!important;color:#fff!important;border-color:transparent!important;box-shadow:0 10px 22px -10px var(--p,#5b5bf0)!important}
+html body .lesson-actions .lesson-action.qzb.pass{background:linear-gradient(135deg,#6366f1,#10b981)!important}
+html body .lesson-actions .lesson-status{margin-left:auto;font-size:11.5px!important;opacity:.6;text-align:right}
+@media(max-width:560px){html body .lesson-actions .lesson-action{flex:1 1 calc(50% - 10px);min-width:0}html body .lesson-actions .lesson-status{flex:1 0 100%;margin:2px 0 0;text-align:left}}
+
+/* blok kode: tampil seperti jendela editor */
+html body .code-panel{border-radius:18px!important;overflow:hidden;border:1px solid color-mix(in srgb,#6d6df5 28%,transparent)!important;background:#0b0f2a!important;box-shadow:0 18px 40px -22px rgba(20,24,90,.55)}
+html body .code-panel .code-header{position:relative;display:flex;align-items:center;gap:10px;padding:12px 16px 12px 70px!important;background:#151a3d!important;color:#a9b4e8!important;font:700 11.5px/1 ui-monospace,Menlo,Consolas,monospace!important;letter-spacing:.04em;border:0!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+html body .code-panel .code-header::before{content:"";position:absolute;left:16px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;background:#ff5f57;box-shadow:19px 0 0 #febc2e,38px 0 0 #28c840}
+html body .code-container{position:relative;background:#0b0f2a!important}
+html body .code-container .copy-btn{position:absolute!important;top:12px;right:12px;left:auto!important;z-index:3;min-height:28px;padding:0 13px!important;border-radius:999px!important;font:700 11px/1 var(--head,Inter,sans-serif)!important;background:rgba(255,255,255,.1)!important;color:#dfe5ff!important;border:1px solid rgba(255,255,255,.18)!important;backdrop-filter:blur(6px);cursor:pointer}
+html body .code-container .copy-btn:hover{background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee))!important;color:#fff!important;border-color:transparent!important}
+html body pre.code-block{margin:0!important;padding:20px 22px 22px!important;font:13px/1.75 ui-monospace,Menlo,Consolas,monospace!important;background:transparent!important;color:#e6e9ff!important;overflow:auto;tab-size:2;border:0!important;border-radius:0!important}
+html body pre.code-block code{display:block;white-space:pre;font:inherit;padding:0!important;background:transparent!important}
+
+/* panel penjelasan */
+html body .explanation-panel{border-radius:18px!important;padding:22px 24px!important;background:var(--surface-2,color-mix(in srgb,var(--p,#5b5bf0) 5%,var(--surface,#fff)))!important;border:1px solid var(--bd,#e3e7f5)!important}
+html body .explanation-title{font:800 15px/1.3 var(--head,Inter,sans-serif)!important;margin:0 0 14px!important;display:flex;align-items:center;gap:9px}
+html body .explanation-title::before{content:"💡";font-size:16px}
+html body .explanation-list{list-style:none!important;margin:0!important;padding:0!important;display:grid;gap:10px}
+html body .explanation-list li{position:relative;padding:0 0 0 24px!important;font-size:13.5px;line-height:1.65}
+html body .explanation-list li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border-radius:3px;background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee));transform:rotate(45deg)}
+html body .explanation-list li strong{color:var(--p,#5b5bf0)}
+body.dark-theme .explanation-list li strong{color:#c4b5fd}
+
+/* keluaran simulasi */
+html body .output-label{display:inline-flex;align-items:center;gap:8px;margin:20px 0 10px!important;padding:5px 12px;border-radius:99px;font:800 10.5px/1 var(--head,Inter,sans-serif)!important;letter-spacing:.1em;text-transform:uppercase;background:color-mix(in srgb,var(--p,#5b5bf0) 12%,transparent);color:var(--p,#5b5bf0)!important}
+html body .output-label::before{content:"";width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.25);animation:olPulse 1.8s infinite}
+@keyframes olPulse{50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+body.dark-theme .output-label{color:#c4b5fd!important}
+html body .output-block{border-radius:16px!important;border:1px solid var(--bd,#e3e7f5)!important;padding:18px 20px!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+
+/* judul & teks materi */
+html body .neo-box>h3{font-size:clamp(19px,2.6vw,26px)!important;line-height:1.25;letter-spacing:-.01em;background:linear-gradient(100deg,var(--tx,#14183a) 40%,var(--p,#5b5bf0));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.dark-theme .neo-box>h3{background:linear-gradient(100deg,#fff 40%,#c4b5fd);-webkit-background-clip:text;background-clip:text}
+html body .neo-box>p{font-size:14.5px;line-height:1.75;max-width:80ch}
+html body .neo-box .badge{border-radius:999px!important;padding:8px 16px!important;box-shadow:0 10px 22px -12px var(--p,#5b5bf0)}
+
+/* navigasi sebelum/berikutnya */
+html body .lesson-nav{gap:14px!important;margin-top:16px!important}
+html body .lesson-nav button{border-radius:16px!important;padding:14px 18px!important;border:1.5px solid var(--bd,#e3e7f5)!important;background:var(--surface-2,color-mix(in srgb,var(--p,#5b5bf0) 4%,transparent))!important;transition:transform .25s,border-color .25s,box-shadow .25s!important;cursor:pointer}
+html body .lesson-nav button:hover{transform:translateY(-3px);border-color:var(--p,#5b5bf0)!important;box-shadow:0 16px 30px -18px var(--p,#5b5bf0)}
+html body .lesson-nav button small{font-weight:800;color:var(--p,#5b5bf0)}
+body.dark-theme .lesson-nav button small{color:#c4b5fd}
+@media(max-width:640px){html body pre.code-block{font-size:12px;padding:16px!important}html body .explanation-panel{padding:18px!important}}
+html body .neo-box>p{max-width:none!important}
+html body pre.code-block .token-tag{color:#7dd3fc!important}
+html body pre.code-block .token-attr{color:#fcd34d!important}
+html body pre.code-block .token-string{color:#86efac!important}
+html body pre.code-block .token-comment{color:#7c86b8!important;font-style:italic}
+html body pre.code-block .token-keyword,html body pre.code-block .token-function{color:#c4b5fd!important}
+/* tombol simulasi */
+html body .output-block .btn,html body .layout-split~.output-block .btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 18px!important;border-radius:999px!important;border:0!important;font:700 12.5px/1 var(--head,Inter,sans-serif)!important;color:#fff!important;cursor:pointer;background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee))!important;box-shadow:0 10px 22px -12px var(--p,#5b5bf0)!important;text-shadow:none!important;transition:transform .2s,filter .2s!important}
+html body .output-block .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+html body .output-block .btn:active{transform:scale(.97)}
+html body .output-block .btn-teal{background:linear-gradient(135deg,#14b8a6,#0ea5e9)!important}
+html body .output-block .btn-orange{background:linear-gradient(135deg,#fb923c,#f43f5e)!important}
+html body .output-block .btn-yellow{background:linear-gradient(135deg,#f59e0b,#ef4444)!important}
+html body .output-block .btn-blue{background:linear-gradient(135deg,#3b82f6,#6366f1)!important}
+html body .output-label{width:fit-content!important;border:0!important;background-color:color-mix(in srgb,var(--p,#5b5bf0) 12%,transparent)!important;box-shadow:none!important}
+html body .layout-split{align-items:start!important}
+html body .layout-split .code-panel{height:auto!important;max-height:none!important}
+html body pre.code-block{max-height:none!important}
+
+/* ===== CODE PLAYGROUND ===== */
+html body .lesson-actions .lesson-action.pgb{background:transparent!important;color:var(--p,#5b5bf0)!important;border:1.5px solid var(--p,#5b5bf0)!important}
+body.dark-theme .lesson-actions .lesson-action.pgb{color:#c4b5fd!important;border-color:#8b7cf6!important}
+html body .lesson-actions .lesson-action.pgb:hover{background:linear-gradient(135deg,var(--p,#5b5bf0),var(--p2,#22d3ee))!important;color:#fff!important;border-color:transparent!important}
+.pg-back{position:fixed;inset:0;z-index:9660;display:grid;place-items:center;padding:clamp(8px,2vw,22px);background:rgba(8,10,30,.66);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.pg-back.open{opacity:1;visibility:visible}
+.pg{width:min(1320px,100%);height:min(860px,100%);display:flex;flex-direction:column;border-radius:24px;background:var(--surface,#fff);color:var(--tx,#14183a);border:1px solid var(--bd,#e3e7f5);box-shadow:0 50px 120px -30px rgba(0,0,0,.7);overflow:hidden;transform:translateY(20px) scale(.97);transition:transform .4s cubic-bezier(.2,.9,.25,1.1)}
+.pg-back.open .pg{transform:none}
+.pg-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--bd,#e3e7f5)}
+.pg-head h3{margin:0;font:800 16px/1.2 var(--head,Inter,sans-serif);flex:1 1 220px;min-width:0}
+.pg-head h3 small{display:block;font:700 10.5px/1 var(--head,Inter,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--p,#5b5bf0);margin-bottom:5px}
+.pg-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pg-b{border:1.5px solid var(--bd,#e3e7f5);background:transparent;color:inherit;border-radius:999px;min-height:36px;padding:0 15px;font:700 12px/1 var(--head,Inter,sans-serif);cursor:pointer;transition:transform .2s,border-color .2s}
+.pg-b:hover{transform:translateY(-2px);border-color:var(--p,#5b5bf0)}
+.pg-b.run{border:0;color:#fff;background:linear-gradient(135deg,#10b981,#059669);box-shadow:0 8px 18px -10px #10b981}
+.pg-b.on{background:color-mix(in srgb,var(--p,#5b5bf0) 16%,transparent);border-color:var(--p,#5b5bf0)}
+.pg-x{width:36px;padding:0}
+.pg-note{margin:0;padding:9px 18px;font-size:12.5px;line-height:1.5;background:color-mix(in srgb,var(--p,#5b5bf0) 8%,transparent);border-bottom:1px solid var(--bd,#e3e7f5)}
+.pg-main{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr}
+.pg-ed,.pg-pv{display:flex;flex-direction:column;min-width:0;min-height:0}
+.pg-ed{border-right:1px solid var(--bd,#e3e7f5);background:#0b0f2a}
+.pg-lab{padding:8px 16px;font:700 10.5px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:#a9b4e8;background:#151a3d;display:flex;justify-content:space-between;align-items:center}
+.pg-pv .pg-lab{background:color-mix(in srgb,var(--p,#5b5bf0) 10%,var(--surface,#fff));color:inherit;opacity:.9}
+html body .pg-ta{background:#0b0f2a!important;color:#e6e9ff!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.pg-ta{flex:1;width:100%;resize:none;border:0;outline:0;padding:16px 18px;background:#0b0f2a;color:#e6e9ff;font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;tab-size:2;white-space:pre;overflow:auto;caret-color:#7dd3fc}
+.pg-stage{flex:1;min-height:0;display:flex;justify-content:center;background:repeating-conic-gradient(color-mix(in srgb,var(--tx,#14183a) 5%,transparent) 0 25%,transparent 0 50%) 0 0/18px 18px;overflow:auto}
+.pg-stage iframe{width:100%;height:100%;border:0;background:#fff;transition:width .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.pg-con{max-height:26%;min-height:70px;overflow:auto;background:#0b0f2a;color:#cbd5ff;font:12px/1.6 ui-monospace,Menlo,Consolas,monospace;padding:8px 14px;border-top:1px solid var(--bd,#e3e7f5)}
+.pg-con div{white-space:pre-wrap;word-break:break-word}
+.pg-con .err{color:#fda4af}.pg-con .mut{opacity:.5}
+@media(max-width:820px){.pg-main{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.pg-ed{border-right:0;border-bottom:1px solid var(--bd,#e3e7f5)}.pg{border-radius:18px}.pg-sizes{display:none}}
+
 </style>
 <script id="pro-js">
 /* ==========================================================
@@ -4292,6 +4474,457 @@ body.dark-theme #cur.lbl .cur-ring{--c1:#7c6cf0}
   const anchor=Array.from(document.querySelectorAll('#accountDropdown .account-action')).find(x=>/Sertifikat/.test(x.textContent))||Array.from(document.querySelectorAll('#accountDropdown .account-action')).find(x=>/Tentang/.test(x.textContent));
   if(anchor){const b=document.createElement('button');b.id='cursorMenuBtn';b.className='account-action';b.setAttribute('role','menuitem');b.innerHTML='<span class="menu-icon">✦</span><span class="cm-t">'+label()+'</span>';b.onclick=e=>{e.stopPropagation();cycle();};anchor.after(b);}
   document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='k'&&e.shiftKey&&!e.ctrlKey&&!e.metaKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))cycle();});
+})();
+
+/* ===== KUIS PER MATERI + STREAK HARIAN ===== */
+(function(){
+  'use strict';
+  const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  const QK='quiz-results-v1',SK='streak-v1',PASS=2;
+  const rd=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v;}catch(e){return d;}};
+  const wr=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt=s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>');
+  const toast=m=>{if(typeof showToast==='function')showToast(m);};
+
+  /* [pertanyaan, [benar, salah, salah, salah], penjelasan] */
+  const BANK=[
+   [["Website yang kontennya jarang berubah dan harus diubah manual lewat script HTML disebut…",["Web statis","Web dinamis","Web interaktif","Web server"],"Web statis tidak mengambil data dari database, jadi setiap perubahan dilakukan dengan mengedit HTML secara manual."],
+    ["Portal berita dan e-commerce yang mengambil data dari database termasuk jenis…",["Web dinamis","Web statis","Landing page statis","Text editor"],"Web dinamis memiliki konten yang berubah otomatis dan biasanya punya panel pengelolaan data."],
+    ["Bahasa pemrograman yang berjalan di sisi server adalah…",["PHP","HTML","CSS","JavaScript (client-side)"],"HTML, CSS, dan JS berjalan di sisi klien, sedangkan PHP, Java, dan Python berjalan di server."]],
+   [["Tag yang menyimpan metadata seperti judul tab browser adalah…",["`<head>`","`<body>`","`<br>`","`<h1>`"],"`<head>` memuat metadata, misalnya `<title>` serta tautan CSS/JS."],
+    ["Fungsi tag `<br>` adalah…",["Pindah ke baris baru","Membuat heading","Membuat teks berjalan","Membungkus seluruh dokumen"],"`<br>` (line break) memindahkan teks ke baris berikutnya."],
+    ["Heading dengan ukuran terbesar adalah…",["`<h1>`","`<h6>`","`<head>`","`<html>`"],"Heading berjalan dari `<h1>` (terbesar) sampai `<h6>` (terkecil)."]],
+   [["Tag `<tr>` pada tabel berfungsi untuk…",["Membuat baris baru","Membuat kolom data","Membuat tabel","Mengatur ketebalan garis"],"`<tr>` = table row, yaitu satu baris tabel."],
+    ["Atribut `cellpadding` mengatur…",["Ruang antara tepi sel dan isinya","Jarak antar sel","Ketebalan border","Jumlah baris"],"`cellpadding` memberi ruang di dalam sel, sedangkan `cellspacing` mengatur jarak antar sel."],
+    ["Tag untuk satu sel data di dalam baris tabel adalah…",["`<td>`","`<tr>`","`<table>`","`<border>`"],"`<td>` (table data) menampung satu kolom data pada sebuah baris."]],
+   [["Nama variabel di PHP selalu diawali dengan simbol…",["`$`","`#`","`@`","`&`"],"Setiap variabel PHP diawali tanda dollar, misalnya `$nama`."],
+    ["Operator untuk menyambung string pada PHP adalah…",["Titik (`.`)","Plus (`+`)","Ampersand (`&`)","Panah (`->`)"],"Titik adalah operator penyambung (concatenation) di PHP."],
+    ["Jika `$angka1 = 300; $angka2 = 50; $hasil = $angka1 + $angka2;` maka `$hasil` bernilai…",["350","30050","250","300"],"Operator `+` pada angka melakukan penjumlahan, hasilnya 350."]],
+   [["Kelebihan method POST menurut materi adalah…",["Data dikirim tanpa terlihat di URL","Data tampil di kolom URL","Tidak membutuhkan form","Hanya bisa mengirim angka"],"POST mengirim data lewat body request sehingga tidak muncul di URL."],
+    ["Variabel superglobal untuk mengambil data yang dikirim dengan POST adalah…",["`$_POST`","`$_GET`","`$POST`","`echo`"],"Data dibaca dengan `$_POST['nama']`."],
+    ["Atribut `name` pada input form berfungsi sebagai…",["Kunci penanda saat data diolah","Warna teks input","Tombol pengirim","Alamat file tujuan"],"`name` menjadi kunci untuk memanggil data di `$_POST`."]],
+   [["Fungsi `parseFloat()` adalah…",["Mengubah string menjadi angka desimal","Membulatkan angka","Menampilkan alert","Mencetak teks ke layar"],"Nilai dari input berupa string, sehingga perlu diubah ke angka sebelum dihitung."],
+    ["Dengan rumus `na = 0.3*q + 0.7*t`, jika q = 80 dan t = 90, nilai akhirnya…",["87","85","170","8"],"0,3×80 = 24 dan 0,7×90 = 63, jadi 24 + 63 = 87 (predikat A)."],
+    ["Blok `else if` dievaluasi ketika…",["Kondisi `if` pertama tidak terpenuhi","Selalu dijalankan","Sebelum `if`","Semua kondisi benar"],"`else if` adalah alternatif kondisi kedua yang diperiksa jika kondisi pertama salah."]],
+   [["`for ($i = 1; $i <= 5; $i++)` akan mengulang sebanyak…",["5 kali","4 kali","6 kali","Tak terhingga"],"Counter mulai dari 1 sampai 5, sehingga ada 5 putaran."],
+    ["Ekspresi `$i++` disebut…",["Increment","Assignment","Concatenation","Inisialisasi"],"`$i++` menambah nilai counter 1 setiap putaran."],
+    ["Bagian `$i <= 5` pada perulangan berfungsi sebagai…",["Syarat batas perulangan","Inisialisasi counter","Langkah penambahan","Output teks"],"Perulangan terus berjalan selama syarat ini bernilai TRUE."]],
+   [["Dialog JavaScript yang menerima isian teks dari pengguna adalah…",["`prompt()`","`alert()`","`confirm()`","`write()`"],"`prompt()` menampilkan kotak isian string."],
+    ["`confirm()` mengembalikan nilai…",["true atau false","String bebas","Angka","Tidak ada"],"OK menghasilkan true, Batal menghasilkan false."],
+    ["`alert()` digunakan untuk…",["Pemberitahuan satu arah","Menerima input teks","Meminta konfirmasi","Membuat perulangan"],"`alert()` hanya menampilkan pesan, tanpa mengembalikan pilihan pengguna."]],
+   [["Properti CSS untuk menghilangkan garis bawah pada link adalah…",["`text-decoration: none`","`font-weight: bold`","`list-style-type: square`","`color: #552CB7`"],"`text-decoration: none` menghapus underline bawaan link."],
+    ["Properti untuk mengubah bentuk bullet pada daftar adalah…",["`list-style-type`","`text-decoration`","`margin-bottom`","`color`"],"Contohnya `list-style-type: square` untuk bullet kotak."],
+    ["Selector `a.hello` menargetkan…",["Tag `<a>` yang ber-class “hello”","Semua tag `<a>`","Elemen ber-id “hello”","Tag `<p>` ber-class “a”"],"Penulisan `tag.class` menargetkan tag tertentu dengan class tertentu."]],
+   [["`display: flex` berfungsi untuk…",["Menyusun elemen secara sejajar dan elastis","Menyembunyikan elemen","Mengubah warna latar","Memberi border"],"Flexbox membuat anak elemen tertata fleksibel dalam satu wadah."],
+    ["`flex-wrap: wrap` membuat…",["Elemen turun ke baris berikutnya jika ruang tidak cukup","Elemen tidak pernah turun","Arah elemen berbalik","Elemen terhapus"],"Tanpa wrap, elemen dipaksa tetap dalam satu baris."],
+    ["`@media screen and (max-width: 768px)` aktif ketika…",["Lebar layar 768px atau kurang","Lebar layar 768px atau lebih","Selalu aktif","Hanya saat dicetak"],"`max-width` menetapkan batas lebar maksimum agar aturan berlaku."]],
+   [["Pada `return x + y`, kata `return` berfungsi…",["Mengembalikan hasil ke pemanggil fungsi","Menampilkan alert","Mengulang fungsi","Menghapus variabel"],"`return` menghentikan fungsi dan mengirim nilai kembali."],
+    ["Pada `function salam(pesan)`, `pesan` disebut…",["Parameter (argumen)","Konstanta","Tag HTML","Event"],"Parameter menampung nilai yang dikirim saat fungsi dipanggil."],
+    ["`tambah(5, 7)` dengan `return x + y` menghasilkan…",["12","57","35","undefined"],"Kedua argumen bertipe angka sehingga dijumlahkan: 5 + 7 = 12."]],
+   [["`getMonth()` mengembalikan angka berapa untuk bulan Januari?",["0","1","12","11"],"Indeks bulan dimulai dari 0 (Januari) sampai 11 (Desember)."],
+    ["`getDay()` mengembalikan…",["Indeks hari 0–6 (0 = Minggu)","Tanggal 1–31","Nomor bulan","Tahun 4 digit"],"`getDay()` untuk hari dalam seminggu, `getDate()` untuk tanggal."],
+    ["`new Date()` mengambil waktu dari…",["Jam komputer klien","Jam server","Database","Satelit GPS"],"Objek Date membaca jam perangkat pengguna."]],
+   [["`window.location.href` dipakai untuk…",["Memindahkan halaman ke URL lain","Menampilkan pesan","Mengubah warna","Menghapus halaman"],"Mengubah nilainya memicu browser memuat URL baru."],
+    ["`selectedIndex` pada elemen select berisi…",["Indeks opsi yang sedang dipilih","Teks seluruh opsi","Jumlah opsi","Warna dropdown"],"Indeks dimulai dari 0 untuk opsi pertama."],
+    ["Jika `selectedIndex == 1` pada contoh materi, halaman diarahkan ke…",["`latihan2.html`","`latihan1.html`","`index.html`","Tidak ke mana-mana"],"Indeks 0 menuju latihan1, indeks 1 menuju latihan2."]],
+   [["`document.fform.Jurusan.value` pada dropdown menghasilkan…",["Nilai opsi yang sedang dipilih","Semua opsi","Jumlah opsi","Label tombol"],"Properti `value` select berisi nilai opsi aktif."],
+    ["Baris `Ojurusan.value = jurusan` berfungsi…",["Mengisi kolom output dengan pilihan dropdown","Menghapus dropdown","Menampilkan alert","Mengubah daftar opsi"],"Nilai dari dropdown dipindahkan ke textbox penampung."],
+    ["Elemen HTML untuk membuat dropdown adalah…",["`<select>`","`<dropdown>`","`<list>`","`<td>`"],"Opsi-opsinya ditulis dengan `<option>` di dalam `<select>`."]],
+   [["`onsubmit` yang mengembalikan `false` akan…",["Membatalkan pengiriman form","Mengirim form","Me-reload halaman","Tidak berpengaruh"],"Nilai false menahan browser agar tidak melakukan submit."],
+    ["`setTimeout(\"clock()\", 1000)` menjalankan `clock()` setelah…",["1 detik","1000 detik","1 menit","Segera"],"Delay dalam milidetik, jadi 1000 ms = 1 detik."],
+    ["Agar jam digital terus berjalan, fungsi `clock()` perlu…",["Memanggil `setTimeout` ke dirinya sendiri","Memanggil `alert`","Mengembalikan `false`","Menutup halaman"],"Pemanggilan berulang lewat `setTimeout` membuat jam terus diperbarui."]],
+   [["Pola `teks.substr(1, len) + teks.substr(0, 1)` menghasilkan…",["Huruf depan pindah ke belakang","Huruf belakang pindah ke depan","Teks terhapus","Semua huruf kapital"],"Dengan begitu teks tampak bergeser ke kiri."],
+    ["Jika delay `setTimeout` diubah dari 150 ke 50, teks akan…",["Bergeser lebih cepat","Bergeser lebih lambat","Berhenti","Hilang"],"Delay lebih kecil berarti pembaruan lebih sering."],
+    ["`substr(awal, panjang)` digunakan untuk…",["Memotong bagian string","Menggabungkan string","Menghitung huruf","Mengubah huruf besar"],"`substr` memotong mulai indeks awal sepanjang nilai yang ditentukan."]],
+   [["Peran Controller dalam MVC adalah…",["Mediator yang menangkap input dari View lalu memperbarui Model","Menampilkan antarmuka","Menyimpan database","Menjalankan server"],"Controller menghubungkan View dan Model."],
+    ["WAR adalah singkatan dari…",["Web Archive","Web Application Router","Wide Area Response","Web Access Rule"],"WAR adalah arsip terkompresi untuk aplikasi web Java."],
+    ["Apache Tomcat berfungsi sebagai…",["Web server dan servlet container","Editor teks","Basis data","Browser"],"Tomcat mengeksekusi JSP dan Servlet."]],
+   [["Method `init()` pada Servlet dipanggil…",["Sekali saat servlet pertama dibuat","Setiap ada request","Sebelum setiap `doGet`","Tidak pernah"],"`init()` berjalan satu kali oleh container saat instansiasi."],
+    ["Method `service()` bertugas…",["Mengarahkan permintaan ke `doGet` atau `doPost`","Menyimpan cookie","Menghapus servlet","Menampilkan CSS"],"`service()` adalah metode inti penentu rute permintaan."],
+    ["`sendError(404)` digunakan untuk…",["Mengirim kode status kesalahan HTTP","Menyisipkan cookie","Mengalihkan link","Menulis log"],"Metode ini mengirim sinyal error seperti 404 atau 500 ke klien."]]
+  ];
+
+  const cards=()=>$$('.tab-content .neo-box');
+  const titleOf=(c,i)=>{const h=c.querySelector('h3'),b=c.querySelector('.badge');return {t:h?h.textContent.trim():'Materi '+(i+1),b:b?b.textContent.trim():'Materi '+(i+1)};};
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+
+  /* ---------- STREAK ---------- */
+  const dkey=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+  function sdata(){const s=rd(SK,{days:[]});if(!Array.isArray(s.days))s.days=[];return s;}
+  function calc(){
+    const set=new Set(sdata().days),t=new Date(),today=dkey(t),has=set.has(today);
+    let cur=0,d=has?t:addDays(t,-1);while(set.has(dkey(d))){cur++;d=addDays(d,-1);}
+    const days=[...set].sort();let best=0,run=0,prev=null;
+    days.forEach(k=>{const dt=new Date(k+'T00:00:00');run=prev&&Math.round((dt-prev)/864e5)===1?run+1:1;prev=dt;if(run>best)best=run;});
+    return {cur,best,has,set,total:days.length};
+  }
+  function record(){
+    const s=sdata(),today=dkey(new Date());if(s.days.includes(today))return;
+    s.days.push(today);s.days=s.days.slice(-400);wr(SK,s);
+    const c=calc();renderStreak();
+    const MS={3:'3 hari beruntun! Kebiasaan baik mulai terbentuk 🔥',7:'Seminggu penuh! Kamu luar biasa 🏅',14:'14 hari beruntun! Konsistensi level dewa 🚀',30:'30 hari beruntun! Sungguh mengagumkan 👑'};
+    toast(MS[c.cur]||(c.cur>1?'🔥 Streak '+c.cur+' hari! Jaga terus ya':'🔥 Streak dimulai! Datang lagi besok'));
+  }
+  const WD=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+  function renderStreak(){
+    const c=calc(),card=$('#streakCard');
+    const chip=$('#streakChip');if(chip){chip.classList.toggle('live',c.has);$('.n',chip).textContent=c.cur;chip.title=c.cur?'Streak belajar '+c.cur+' hari':'Belum ada streak';}
+    if(!card)return;
+    card.classList.toggle('live',c.has);
+    $('.sk-n',card).innerHTML=c.cur+'<small>hari beruntun</small>';
+    $('.sk-sub',card).textContent=c.has?(c.cur>=7?'Konsistensimu keren sekali, pertahankan!':'Bagus! Hari ini sudah tercatat.'):(c.cur?'Belajar hari ini agar streak '+c.cur+' hari tidak terputus.':'Buka satu materi hari ini untuk memulai streak.');
+    const t=new Date(),wk=$('.sk-week',card);wk.innerHTML='';
+    for(let i=6;i>=0;i--){const d=addDays(t,-i),on=c.set.has(dkey(d));const e=document.createElement('div');e.className='sk-d'+(on?' on':'')+(i===0?' today':'');e.innerHTML='<i>'+(on?'🔥':'')+'</i><span>'+(i===0?'Hari ini':WD[d.getDay()])+'</span>';wk.appendChild(e);}
+    const q=rd(QK,{}),passed=Object.values(q).filter(x=>x&&x.best>=PASS).length,all=cards().length||18;
+    $('.sk-side',card).innerHTML='Terbaik <b>'+c.best+' hari</b><br>Kuis lulus <b>'+passed+'/'+all+'</b><br><span class="st'+(c.has?' ok':'')+'">'+(c.has?'✓ Hari ini selesai':'Belum belajar hari ini')+'</span>';
+  }
+  function mountStreak(){
+    const k=$('#kpis');if(k&&!$('#streakCard')){k.insertAdjacentHTML('afterend','<section id="streakCard" aria-label="Streak belajar"><div class="sk-main"><span class="sk-fire" aria-hidden="true">🔥</span><div><div class="sk-n"></div><div class="sk-sub"></div></div></div><div class="sk-week" role="img" aria-label="Aktivitas 7 hari terakhir"></div><div class="sk-side"></div></section>');}
+    const act=$('.topbar-actions,.top-actions')||($('#certOpenBtn')&&$('#certOpenBtn').parentElement);
+    if(act&&!$('#streakChip')){const b=document.createElement('button');b.type='button';b.className='top-nav-btn';b.id='streakChip';b.innerHTML='<span class="f">🔥</span><span class="n">0</span>';b.onclick=()=>{if(typeof showHomeDashboard==='function')showHomeDashboard();setTimeout(()=>{const s=$('#streakCard');if(s)s.scrollIntoView({behavior:'smooth',block:'center'});},120);};act.insertBefore(b,$('#certOpenBtn')||act.firstChild);}
+    renderStreak();
+  }
+
+  /* ---------- KUIS ---------- */
+  document.body.insertAdjacentHTML('beforeend','<div class="qz-back" id="qzBack" aria-hidden="true"><section class="qz" role="dialog" aria-modal="true" aria-labelledby="qzTitle"><button class="qz-x" type="button" aria-label="Tutup kuis">✕</button><div id="qzBody"></div></section></div>');
+  const back=$('#qzBack'),body=$('#qzBody');let st=null,lastFocus=null;
+  function open(i){
+    const c=cards()[i];if(!c||!BANK[i])return;lastFocus=document.activeElement;
+    st={i,c,n:0,score:0,res:[],qs:BANK[i].map(q=>({q:q[0],o:shuffle(q[1].map((t,k)=>({t,ok:k===0}))),e:q[2]})),lock:false};
+    back.classList.add('open');back.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';draw();
+  }
+  function close(){back.classList.remove('open');back.setAttribute('aria-hidden','true');document.body.style.overflow='';st=null;if(lastFocus&&lastFocus.focus)try{lastFocus.focus({preventScroll:true});}catch(e){}}
+  function draw(){
+    const m=titleOf(st.c,st.i),q=st.qs[st.n];st.lock=false;
+    body.innerHTML='<p class="qz-kick">Kuis · '+esc(m.b)+'</p><h3 class="qz-title" id="qzTitle">'+esc(m.t)+'</h3><div class="qz-dots">'+st.qs.map((_,k)=>'<i class="'+(st.res[k]===true?'ok':st.res[k]===false?'no':k===st.n?'cur':'')+'"></i>').join('')+'</div><p class="qz-q">'+(st.n+1)+'. '+fmt(q.q)+'</p><div class="qz-opts">'+q.o.map((o,k)=>'<button type="button" class="qz-opt" style="--i:'+k+'" data-k="'+k+'"><b>'+'ABCD'[k]+'</b><span>'+fmt(o.t)+'</span></button>').join('')+'</div><div id="qzFb"></div><div class="qz-foot"><small>Lulus jika benar ≥ '+PASS+' dari '+st.qs.length+'</small><span id="qzNext"></span></div>';
+    $$('.qz-opt',body).forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+  }
+  function pick(k){
+    if(!st||st.lock)return;st.lock=true;const q=st.qs[st.n],ok=q.o[k].ok;
+    $$('.qz-opt',body).forEach((b,j)=>{b.disabled=true;if(q.o[j].ok)b.classList.add('ok');else if(j===k)b.classList.add('no');else b.classList.add('dim');});
+    st.res[st.n]=ok;if(ok)st.score++;
+    $('#qzFb').innerHTML='<div class="qz-fb '+(ok?'ok':'no')+'"><strong>'+(ok?'Benar! 🎉':'Belum tepat')+'</strong>'+fmt(q.e)+'</div>';
+    const last=st.n===st.qs.length-1;
+    $('#qzNext').innerHTML='<button class="qz-btn" type="button" id="qzGo">'+(last?'Lihat hasil':'Lanjut →')+'</button>';
+    const go=$('#qzGo');go.onclick=()=>{if(last)finish();else{st.n++;draw();}};go.focus({preventScroll:true});
+  }
+  function confetti(box){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const w=document.createElement('div');w.className='qz-conf';const cols=['#fb923c','#f43f5e','#5b5bf0','#22d3ee','#facc15','#10b981'];
+    for(let i=0;i<36;i++){const e=document.createElement('i');e.style.cssText='left:'+Math.random()*100+'%;background:'+cols[i%6]+';--dx:'+((Math.random()-.5)*160)+'px;--r:'+(Math.random()*720)+'deg;animation-delay:'+Math.random()*.5+'s;animation-duration:'+(1.4+Math.random()*1)+'s';w.appendChild(e);}
+    box.appendChild(w);setTimeout(()=>w.remove(),3000);
+  }
+  function finish(){
+    const {i,c,score}=st,total=st.qs.length,pass=score>=PASS,r=rd(QK,{}),prev=r[i]||{best:0};
+    r[i]={best:Math.max(prev.best||0,score),total,at:Date.now()};wr(QK,r);
+    record();refreshBtn(i);
+    let marked=false;
+    if(pass){const mk=$('.lesson-action:not(.saved):not(.qzb)',c);if(mk&&!mk.classList.contains('done')){mk.click();marked=true;}}
+    const stars='<div class="qz-stars" aria-hidden="true">'+[0,1,2].map(k=>'<span class="'+(k<score?'on':'')+'" style="--i:'+k+'">⭐</span>').join('')+'</div>';
+    const msg=score===total?'Sempurna! Kamu menguasai materi ini.':pass?'Bagus! Kamu lulus kuis materi ini.':'Sedikit lagi! Baca ulang materinya lalu coba lagi.';
+    const next=cards()[i+1];
+    body.innerHTML='<div class="qz-res"><p class="qz-kick" style="margin:0">Hasil kuis</p>'+stars+'<div class="qz-score">'+score+'<small>/'+total+'</small></div><p class="qz-msg">'+msg+(marked?' Materi otomatis ditandai selesai ✓':'')+'</p><div class="qz-acts">'+(pass&&next?'<button class="qz-btn" type="button" id="qzNx">Materi berikutnya →</button>':'')+'<button class="qz-btn ghost" type="button" id="qzRe">↻ Ulangi kuis</button><button class="qz-btn ghost" type="button" id="qzCl">Tutup</button></div></div>';
+    $('#qzRe').onclick=()=>open(i);$('#qzCl').onclick=close;
+    const nx=$('#qzNx');if(nx)nx.onclick=()=>{close();const nn=$('.lesson-nav .nx',c);if(nn)nn.click();};
+    if(pass)confetti($('.qz'));
+    setTimeout(renderStreak,50);
+  }
+  function refreshBtn(i){
+    const c=cards()[i];if(!c)return;const b=$('.lesson-action.qzb',c);if(!b)return;
+    const r=(rd(QK,{})[i])||null;b.classList.toggle('pass',!!(r&&r.best>=PASS));
+    b.textContent=r?(r.best>=PASS?'✓ Kuis '+r.best+'/'+r.total:'📝 Ulangi kuis ('+r.best+'/'+r.total+')'):'📝 Kuis';
+  }
+  function mountButtons(){
+    cards().forEach((c,i)=>{
+      const row=$('.lesson-actions',c);if(!row||$('.lesson-action.qzb',row)||!BANK[i])return;
+      const b=document.createElement('button');b.type='button';b.className='lesson-action qzb';b.onclick=()=>open(i);
+      const fav=$$('.lesson-action',row).pop();row.insertBefore(b,$('.lesson-status',row)||null);refreshBtn(i);
+    });
+  }
+  back.addEventListener('click',e=>{if(e.target===back)close();});
+  $('.qz-x',back).onclick=close;
+  document.addEventListener('keydown',e=>{
+    if(!back.classList.contains('open'))return;
+    if(e.key==='Escape'){e.preventDefault();close();return;}
+    if(!st||e.ctrlKey||e.metaKey||e.altKey)return;
+    const k='abcd1234'.indexOf(e.key.toLowerCase());
+    if(k>=0&&!st.lock&&$('.qz-opt',body)){e.preventDefault();pick(k%4);}
+  });
+
+  /* pencatat aktivitas: buka materi / tandai selesai / navigasi materi */
+  document.addEventListener('click',e=>{
+    if(e.target.closest('.materials-menu .nav-link,.lesson-nav button,.lesson-action:not(.qzb):not(.saved),.sc-district,.toc-list button,.toc-list a'))setTimeout(record,60);
+  },true);
+
+  mountButtons();mountStreak();
+  const hs=window.showHomeDashboard;if(typeof hs==='function')window.showHomeDashboard=function(){const r=hs.apply(this,arguments);setTimeout(()=>{mountStreak();renderStreak();},60);return r;};
+  setTimeout(()=>{mountButtons();mountStreak();},900);
+  window.openQuiz=open;
+})();
+
+/* ===== CODE PLAYGROUND ===== */
+(function(){
+  'use strict';
+  const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  const KEY='playground-v1';
+  const rd=()=>{try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}};
+  const wr=v=>{try{localStorage.setItem(KEY,JSON.stringify(v));}catch(e){}};
+  const toast=m=>{if(typeof showToast==='function')showToast(m);};
+  const NOTE_PHP='Contoh aslinya memakai PHP yang butuh server, jadi di sini dipakai padanannya dalam JavaScript agar bisa dijalankan di browser.';
+  /* indeks materi -> {note, code} */
+  const S={
+1:{c:`<body bgcolor="#FB7DA8" text="#000000">
+Halo Dunia!<br>
+Ini script pertamaku.<br>
+<h1 align="center">Judul Tengah</h1>
+<marquee bgcolor="#ffc567" width="100%">Teks Berjalan!</marquee>
+</body>`,n:'Ganti tulisan, warna, atau tingkat heading, lalu lihat hasilnya langsung.'},
+2:{c:`<table border="2" cellspacing="4" cellpadding="8">
+  <tr>
+    <td>Baris 1, Kolom 1</td>
+    <td>Baris 1, Kolom 2</td>
+  </tr>
+  <tr>
+    <td>Baris 2, Kolom 1</td>
+    <td>Baris 2, Kolom 2</td>
+  </tr>
+</table>`,n:'Coba ubah angka border, cellspacing, dan cellpadding. Tambahkan baris atau kolom baru.'},
+3:{c:`<script>
+var nim = "251091700586";
+var nama = "Aidil Fikri";
+var angka1 = 300;
+var angka2 = 50;
+var hasil = angka1 + angka2;
+
+document.write("NIM = " + nim + "<br>");
+document.write("Nama = " + nama + "<br>");
+document.write(angka1 + " + " + angka2 + " = " + hasil);
+<\/script>`,n:NOTE_PHP},
+4:{c:`<form id="f">
+  Isikan Nama: <input type="text" name="nama"><br>
+  Isikan No Telp: <input type="text" name="notelp"><br>
+  <input type="submit" value="TAMPIL">
+</form>
+<p id="hasil"></p>
+
+<script>
+document.getElementById("f").onsubmit = function(e){
+  e.preventDefault();
+  hasil.innerHTML = "Nama Anda: " + f.nama.value + "<br>No Telp: " + f.notelp.value;
+};
+<\/script>`,n:'Pemrosesan PHP ($_POST) diganti JavaScript agar bisa dicoba di browser.'},
+5:{c:`<form name="fform">
+  Nilai Kuis: <input name="quis" value="85"><br>
+  Nilai Tugas: <input name="tugas" value="75"><br>
+  <button type="button" onclick="hitungIPK()">Hitung</button><br>
+  IP: <input name="grade" size="3"> Ket: <input name="ket">
+</form>
+
+<script>
+function hitungIPK() {
+  var q = parseFloat(document.fform.quis.value);
+  var t = parseFloat(document.fform.tugas.value);
+  var na = (0.3 * q) + (0.7 * t);
+  var ip = "E";
+  var ket = "Tidak Lulus";
+  if (na > 80) { ip = "A"; ket = "Sangat Baik"; }
+  else if (na > 65) { ip = "B"; ket = "Baik"; }
+  else { ip = "C"; ket = "Cukup"; }
+  document.fform.grade.value = ip;
+  document.fform.ket.value = ket;
+  console.log("Nilai akhir:", na);
+}
+<\/script>`,n:'Ubah nilai kuis dan tugas, atau ubah batas nilai pada if / else if. Hasil nilai akhir juga muncul di konsol.'},
+6:{c:`<script>
+for (var i = 1; i <= 5; i++) {
+  document.write("Loop Ke: " + i + "<br>");
+}
+<\/script>`,n:NOTE_PHP+' Coba ubah batas 5 menjadi 10.'},
+7:{c:`<button onclick="tes()">Test Dialog Box</button>
+
+<script>
+function tes() {
+  var user = prompt("Ketik nama anda:");
+  var status = confirm("Yakin ingin lanjut, " + user + "?");
+  if (status == true) {
+    alert("Selesai! Terima kasih.");
+  } else {
+    alert("Aksi dibatalkan.");
+  }
+}
+<\/script>`,n:'Tekan tombol untuk memunculkan dialog. Jalankan manual dengan tombol ▶ Jalankan.'},
+8:{c:`<style>
+a.hello { color: #552CB7; text-decoration: none; font-weight: bold; }
+li { list-style-type: square; margin-bottom: 5px; }
+</style>
+
+<a class="hello" href="#">Hello World Link (No Underline)</a>
+<ul>
+  <li>Format List Bullet Kotak 1</li>
+  <li>Format List Bullet Kotak 2</li>
+</ul>`,n:'Coba ganti warna, ganti list-style-type menjadi circle atau decimal, atau tambahkan underline kembali.'},
+9:{c:`<style>
+.wrapper { display: flex; flex-wrap: wrap; font-family: sans-serif; }
+.col-left { width: 25%; background: #c7d2fe; padding: 12px; }
+.col-main { width: 75%; background: #fde68a; padding: 12px; }
+@media screen and (max-width: 768px) {
+  .col-left, .col-main { width: 100%; }
+}
+</style>
+
+<div class="wrapper">
+  <div class="col-left">Navigasi</div>
+  <div class="col-main">Konten utama</div>
+</div>`,n:'Pakai tombol ukuran 📱 / 📟 di atas pratinjau untuk melihat tata letak berubah pada layar kecil.'},
+10:{c:`<button onclick="salam('Selamat Pagi!')">Panggil salam</button>
+<button onclick="tampil(tambah(5, 7))">Panggil tambah(5, 7)</button>
+<p id="out"></p>
+
+<script>
+function salam(pesan) {
+  document.getElementById("out").innerHTML = "Pesan: " + pesan;
+}
+function tambah(x, y) {
+  return x + y;
+}
+function tampil(v) {
+  document.getElementById("out").innerHTML = "Hasil: " + v;
+}
+<\/script>`,n:'Buat fungsi baru, misalnya kali(x, y), lalu panggil dari tombol.'},
+11:{c:`<h2 id="waktu"></h2>
+
+<script>
+var hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+var bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+var d = new Date();
+document.getElementById("waktu").innerHTML =
+  hari[d.getDay()] + ", " + d.getDate() + " " + bulan[d.getMonth()] + " " + d.getFullYear() +
+  " - " + d.getHours() + ":" + d.getMinutes();
+<\/script>`,n:'Perhatikan getMonth() dimulai dari 0 dan getDay() dimulai dari Minggu = 0.'},
+12:{c:`<form name="pilihan">
+  <select name="pilih">
+    <option>Latihan Objek Radio</option>
+    <option>Latihan Objek Select</option>
+    <option>Latihan Objek Teks Area</option>
+  </select>
+  <button type="button" onclick="redirectPage()">Simulasi Go!</button>
+</form>
+<p id="info"></p>
+
+<script>
+function redirectPage() {
+  var selIndex = document.pilihan.pilih.selectedIndex;
+  var tujuan = (selIndex == 0) ? "latihan1.html" : "latihan2.html";
+  // window.location.href = tujuan;  <- aslinya berpindah halaman
+  document.getElementById("info").innerHTML = "Akan berpindah ke: " + tujuan;
+}
+<\/script>`,n:'Perpindahan halaman sungguhan dimatikan di sini; hanya ditampilkan alamat tujuannya.'},
+13:{c:`<form name="fform">
+  Jurusan:
+  <select name="Jurusan">
+    <option>Teknik Informatika</option>
+    <option>Sistem Informasi</option>
+    <option>Teknik Komputer</option>
+  </select>
+  <button type="button" onclick="kirimPilihan()">Kirim</button><br><br>
+  Terkirim: <input name="Ojurusan" size="24">
+</form>
+
+<script>
+function kirimPilihan() {
+  var jurusan = document.fform.Jurusan.value;
+  document.fform.Ojurusan.value = jurusan;
+}
+<\/script>`,n:'Tambahkan opsi jurusan baru di dalam select, lalu coba kirim.'},
+14:{c:`<form onsubmit="return cekNama(this)">
+  Nama: <input name="nama">
+  <button>Kirim Form</button>
+</form>
+<h3>Jam: <span id="jam"></span></h3>
+
+<script>
+function cekNama(form) {
+  if (form.nama.value == "") {
+    alert("Nama harus diisi!");
+    return false;
+  }
+  alert("Halo, " + form.nama.value);
+  return false;
+}
+function clock() {
+  var t = new Date();
+  document.getElementById("jam").innerHTML = t.toLocaleTimeString();
+  setTimeout("clock()", 1000);
+}
+clock();
+<\/script>`,n:'Kirim dengan nama kosong untuk melihat validasi. Ubah 1000 untuk mengatur kecepatan jam.'},
+15:{c:`<form name="formMarq">
+  <input name="kotak" size="30" style="font-family:monospace">
+</form>
+
+<script>
+var teks = "Halo Teman! ";
+function marquee() {
+  document.formMarq.kotak.value = teks;
+  teks = teks.substr(1, teks.length) + teks.substr(0, 1);
+  setTimeout("marquee()", 150);
+}
+marquee();
+<\/script>`,n:'Ubah teks atau angka 150 untuk mengatur kecepatan geser.'}
+  };
+  const cards=()=>$$('.tab-content .neo-box');
+  const titleOf=c=>{const h=c.querySelector('h3'),b=c.querySelector('.badge');return {t:h?h.textContent.trim():'Materi',b:b?b.textContent.trim():''};};
+
+  document.body.insertAdjacentHTML('beforeend','<div class="pg-back" id="pgBack" aria-hidden="true"><section class="pg" role="dialog" aria-modal="true" aria-labelledby="pgTitle"><div class="pg-head"><h3 id="pgTitle"><small></small><span></span></h3><div class="pg-tools"><span class="pg-sizes"><button class="pg-b" type="button" data-w="375" title="Ukuran HP">📱</button> <button class="pg-b" type="button" data-w="768" title="Ukuran tablet">📟</button> <button class="pg-b on" type="button" data-w="100%" title="Lebar penuh">🖥</button></span><button class="pg-b run" type="button" id="pgRun">▶ Jalankan</button><button class="pg-b" type="button" id="pgReset">↺ Reset</button><button class="pg-b" type="button" id="pgCopy">Salin</button><button class="pg-b pg-x" type="button" id="pgClose" aria-label="Tutup">✕</button></div></div><p class="pg-note" id="pgNote"></p><div class="pg-main"><div class="pg-ed"><div class="pg-lab"><span>Editor · HTML / CSS / JS</span><span>Ctrl+Enter = jalankan</span></div><textarea class="pg-ta" id="pgTa" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Editor kode"></textarea></div><div class="pg-pv"><div class="pg-lab"><span>Pratinjau</span><span id="pgSt"></span></div><div class="pg-stage"><iframe id="pgFr" title="Pratinjau" sandbox="allow-scripts allow-modals allow-forms"></iframe></div><div class="pg-con" id="pgCon"><div class="mut">Konsol: console.log() dan error tampil di sini.</div></div></div></div></section></div>');
+  const back=$('#pgBack'),ta=$('#pgTa'),fr=$('#pgFr'),con=$('#pgCon'),st=$('#pgSt');
+  let cur=-1,timer=0,last=null;
+
+  const BOOT='<script>(function(){function s(t,a){try{parent.postMessage({pg:1,t:t,m:Array.prototype.map.call(a,function(x){try{return typeof x==="object"?JSON.stringify(x):String(x)}catch(e){return String(x)}}).join(" ")},"*")}catch(e){}}var o=console;["log","info","warn","error"].forEach(function(k){var f=o[k];console[k]=function(){s(k,arguments);try{f.apply(o,arguments)}catch(e){}}});window.addEventListener("error",function(e){s("error",[e.message+(e.lineno?" (baris "+e.lineno+")":"")])})})();<\/script>';
+  const HEAD='<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,sans-serif;margin:12px}</style>'+BOOT+'</head><body>';
+  function run(){
+    con.innerHTML='<div class="mut">Konsol</div>';st.textContent='● berjalan';
+    fr.srcdoc=HEAD+ta.value+'</body></html>';
+    clearTimeout(run.t);run.t=setTimeout(()=>{st.textContent='';},1200);
+  }
+  window.addEventListener('message',e=>{
+    if(!e.data||!e.data.pg||e.source!==fr.contentWindow)return;
+    const d=document.createElement('div');d.className=e.data.t==='error'?'err':'';d.textContent=(e.data.t==='error'?'✖ ':'› ')+e.data.m;con.appendChild(d);con.scrollTop=con.scrollHeight;
+  });
+  function open(i){
+    const s=S[i],c=cards()[i];if(!s||!c)return;cur=i;const m=titleOf(c),saved=rd();
+    $('.pg-head h3 small').textContent='Coba sendiri · '+m.b;$('.pg-head h3 span').textContent=m.t;
+    $('#pgNote').textContent=s.n;ta.value=saved[i]!=null?saved[i]:s.c;
+    $$('.pg-sizes .pg-b').forEach(b=>b.classList.toggle('on',b.dataset.w==='100%'));fr.style.width='100%';
+    back.classList.add('open');back.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    last=document.activeElement;
+    /* dialog (alert/prompt/confirm) hanya muncul saat tombol ditekan, jadi aman dijalankan otomatis */
+    run();setTimeout(()=>{try{ta.focus({preventScroll:true});}catch(e){}},350);
+  }
+  function close(){back.classList.remove('open');back.setAttribute('aria-hidden','true');document.body.style.overflow='';fr.srcdoc='';cur=-1;if(last&&last.focus)try{last.focus({preventScroll:true});}catch(e){}}
+  function save(){if(cur<0)return;const s=rd();if(ta.value===S[cur].c)delete s[cur];else s[cur]=ta.value;wr(s);}
+  ta.addEventListener('input',()=>{save();clearTimeout(timer);timer=setTimeout(run,650);});
+  ta.addEventListener('keydown',e=>{
+    if(e.key==='Tab'){e.preventDefault();const a=ta.selectionStart,b=ta.selectionEnd;ta.value=ta.value.slice(0,a)+'  '+ta.value.slice(b);ta.selectionStart=ta.selectionEnd=a+2;ta.dispatchEvent(new Event('input'));}
+    if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();run();}
+  });
+  $('#pgRun').onclick=run;
+  $('#pgReset').onclick=()=>{if(cur<0)return;ta.value=S[cur].c;save();run();toast('Kode dikembalikan ke contoh awal');};
+  $('#pgCopy').onclick=()=>{const t=ta.value;const ok=()=>toast('Kode disalin');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,()=>{ta.select();document.execCommand('copy');ok();});else{ta.select();document.execCommand('copy');ok();}};
+  $('#pgClose').onclick=close;
+  back.addEventListener('click',e=>{if(e.target===back)close();});
+  $$('.pg-sizes .pg-b').forEach(b=>b.onclick=()=>{$$('.pg-sizes .pg-b').forEach(x=>x.classList.toggle('on',x===b));fr.style.width=b.dataset.w==='100%'?'100%':b.dataset.w+'px';});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&back.classList.contains('open')){e.preventDefault();e.stopPropagation();close();}},true);
+
+  function mount(){
+    cards().forEach((c,i)=>{
+      const row=$('.lesson-actions',c);if(!row||!S[i]||$('.lesson-action.pgb',row))return;
+      const b=document.createElement('button');b.type='button';b.className='lesson-action pgb';b.textContent='▶ Coba sendiri';b.onclick=()=>open(i);
+      row.insertBefore(b,$('.lesson-action.qzb',row)||$('.lesson-status',row)||null);
+    });
+  }
+  mount();setTimeout(mount,900);window.openPlayground=open;
 })();
 
 </script>
